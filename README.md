@@ -1,0 +1,163 @@
+# RAG Q&A Service
+
+A lightweight Retrieval-Augmented Generation (RAG) API that answers questions from a local folder of plain-text documents — no external LLM APIs required.
+
+## How it works
+
+1. `POST /index` reads every `.txt` file in `docs/`, splits each document into individual sentences, and fits a TF-IDF index in memory where every sentence is its own indexed unit.
+2. `POST /ask` transforms the question with the same TF-IDF vocabulary, finds the top matching sentences via cosine similarity, and returns only those specific sentences as the answer — not the whole document or chunk.
+3. `POST /clear` drops the in-memory index so it can be rebuilt with a fresh call to `POST /index`.
+
+If the best similarity score falls below a threshold the service responds with `"insufficient_context"` rather than hallucinating.
+
+## Setup
+
+```bash
+# 1. Create and activate a virtual environment (recommended)
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Start the server
+uvicorn main:app --reload
+```
+
+The API is now available at `http://localhost:8000`.
+Interactive docs: `http://localhost:8000/docs`
+
+## Endpoints
+
+| Method | Path | Description |
+|---|---|---|
+| `POST` | `/index` | Index all `.txt` files in the `docs/` folder |
+| `POST` | `/ask` | Ask a question against the indexed documents |
+| `POST` | `/clear` | Clear the in-memory index |
+
+## Quick start
+
+### 1 — Build the index
+
+```bash
+curl -X POST http://localhost:8000/index
+```
+
+Example response:
+```json
+{
+  "documents_indexed": 5,
+  "sentences_indexed": 81,
+  "files": ["features.txt", "pricing.txt", "product_overview.txt", "refund_policy.txt", "support_policy.txt"]
+}
+```
+
+### 2 — Ask a question
+
+```bash
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "How much does the Business plan cost?"}'
+```
+
+Example response:
+```json
+{
+  "answer": "The Business plan costs $22 per user per month when billed annually, or $28 per user per month when billed monthly.",
+  "sources": [
+    {
+      "file": "pricing.txt",
+      "sentence": "The Business plan costs $22 per user per month when billed annually, or $28 per user per month when billed monthly.",
+      "score": 0.4074
+    }
+  ],
+  "confidence": "answered_from_docs"
+}
+```
+
+The `sentence` field in each source is the exact sentence from the document that contributed to the answer — nothing more.
+
+### 3 — Insufficient context example
+
+```bash
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What is the capital of France?"}'
+```
+
+```json
+{
+  "answer": "The provided documents do not contain enough information to answer this question confidently.",
+  "sources": [],
+  "confidence": "insufficient_context"
+}
+```
+
+### 4 — Clear the index
+
+```bash
+curl -X POST http://localhost:8000/clear
+```
+
+```json
+{ "message": "Index cleared." }
+```
+
+After clearing, calling `POST /ask` returns a 400 until `POST /index` is called again.
+
+## Sample questions to try
+
+| Question | Expected source |
+|---|---|
+| What is TaskFlow? | product_overview.txt |
+| How many team members does the Free plan support? | pricing.txt |
+| How do I request a refund? | refund_policy.txt |
+| What are the Business plan support hours? | support_policy.txt |
+| Does TaskFlow integrate with GitHub? | product_overview.txt |
+| What is the keyboard shortcut to create a task? | features.txt |
+
+## Error handling
+
+| Scenario | HTTP status | Detail |
+|---|---|---|
+| `POST /ask` before `POST /index` | 400 | "Index is not built yet." |
+| `POST /ask` after `POST /clear` | 400 | "Index is not built yet." |
+| Empty question | 422 | "'question' must not be empty." |
+| `docs/` folder missing | 404 | "docs folder not found" |
+| `docs/` folder has no `.txt` files | 422 | "No .txt files found" |
+
+## Providing your own documents
+
+Drop any `.txt` files into the `docs/` folder, then call `POST /index` to build or rebuild the index. The previous index is replaced in memory.
+
+---
+
+## Tradeoffs and what I would improve next
+
+### Retrieval granularity
+
+The index is built at the sentence level — each sentence is its own vector. This means retrieval returns only the specific sentences that matched the query rather than large word-window chunks. The tradeoff is that very short sentences produce sparse TF-IDF vectors, which can make scoring noisy for brief or ambiguous sentences. Grouping 2–3 consecutive sentences per unit would balance precision against vector density.
+
+### TF-IDF vs. embeddings
+
+TF-IDF with suffix-stripping is fast, dependency-free, and fully explainable, but it still relies on vocabulary overlap. A semantic embedding model (e.g., `sentence-transformers/all-MiniLM-L6-v2`) would handle paraphrases and synonyms far better ("cost" vs. "price", "cancel" vs. "terminate"). Given the constraint of no paid APIs, this would be the single highest-impact upgrade.
+
+### Confidence threshold
+
+The `MIN_SCORE = 0.13` cutoff was calibrated against the sample documents. A different document set with different vocabulary density may require tuning this value. A more robust approach would be to set the threshold relative to the score distribution (e.g., flag as insufficient if the top score is less than 2× the mean score).
+
+### Answer generation
+
+The current approach is fully extractive — it returns real sentences verbatim from the source documents, so it cannot fabricate information. The tradeoff is that the answer can feel disjointed when relevant sentences come from different parts of a document. A local instruction-following LLM (e.g., via `llama.cpp` or Ollama) could generate a fluent synthesised answer from the retrieved sentences while remaining grounded.
+
+### Persistence
+
+The index lives only in memory and is lost on server restart. The TF-IDF matrix and vocabulary can be serialised to disk with `joblib` (already installed as a scikit-learn dependency) so the server can warm-start without re-indexing.
+
+### Scalability
+
+For thousands of documents, the in-memory numpy cosine search should be replaced with an approximate nearest-neighbour index (FAISS, hnswlib) or a dedicated vector database (Chroma, Qdrant).
+# assessment
