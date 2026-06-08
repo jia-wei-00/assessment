@@ -49,9 +49,20 @@ curl -X POST http://localhost:8000/index
 Example response:
 ```json
 {
-  "documents_indexed": 5,
-  "sentences_indexed": 81,
-  "files": ["features.txt", "pricing.txt", "product_overview.txt", "refund_policy.txt", "support_policy.txt"]
+  "documents_indexed": 10,
+  "sentences_indexed": 336,
+  "files": [
+    "apex_overview.txt",
+    "attachments_loot.txt",
+    "beginners_tips.txt",
+    "legends_classes.txt",
+    "maps_guide.txt",
+    "movement_mechanics.txt",
+    "ranked_mode.txt",
+    "ring_and_strategy.txt",
+    "team_composition.txt",
+    "weapons_guide.txt"
+  ]
 }
 ```
 
@@ -60,18 +71,18 @@ Example response:
 ```bash
 curl -X POST http://localhost:8000/ask \
   -H "Content-Type: application/json" \
-  -d '{"question": "How much does the Business plan cost?"}'
+  -d '{"question": "what is the highest damage weapon in Apex Legend"}'
 ```
 
 Example response:
 ```json
 {
-  "answer": "The Business plan costs $22 per user per month when billed annually, or $28 per user per month when billed monthly.",
+  "answer": "The Kraber .50-Cal Sniper is a care package-only weapon that deals massive damage per shot and uses unique ammo found only with the weapon. The Wingman uses Heavy Rounds and deals very high damage per shot, making it a favourite for skilled players.",
   "sources": [
     {
-      "file": "pricing.txt",
-      "sentence": "The Business plan costs $22 per user per month when billed annually, or $28 per user per month when billed monthly.",
-      "score": 0.4074
+      "file": "weapons_guide.txt",
+      "sentence": "The Kraber .50-Cal Sniper is a care package-only weapon that deals massive damage per shot and uses unique ammo found only with the weapon.",
+      "score": 0.3393
     }
   ],
   "confidence": "answered_from_docs"
@@ -85,7 +96,7 @@ The `sentence` field in each source is the exact sentence from the document that
 ```bash
 curl -X POST http://localhost:8000/ask \
   -H "Content-Type: application/json" \
-  -d '{"question": "What is the capital of France?"}'
+  -d '{"question": "what is overcooked"}'
 ```
 
 ```json
@@ -112,75 +123,15 @@ After clearing, calling `POST /ask` returns a 400 until `POST /index` is called 
 
 | Question | Expected source | Confidence |
 |---|---|---|
-| What is TaskFlow? | product_overview.txt | `answered_from_docs` |
-| How many team members does the Free plan support? | pricing.txt | `answered_from_docs` |
-| How do I request a refund? | refund_policy.txt | `answered_from_docs` |
-| What are the Business plan support hours? | support_policy.txt | `answered_from_docs` |
-| Does TaskFlow integrate with GitHub? | product_overview.txt | `answered_from_docs` |
-| What is the keyboard shortcut to create a task? | features.txt | `answered_from_docs` |
+| What is Apex Legends? | apex_overview.txt | `answered_from_docs` |
+| What legends are good for beginners? | team_composition.txt | `answered_from_docs` |
 | What is the highest damage weapon in Apex Legend? | weapons_guide.txt | `answered_from_docs` |
 | What is rank in Apex Legend? | ranked_mode.txt | `answered_from_docs` |
+| How does the Evo Shield work? | attachments_loot.txt | `answered_from_docs` |
+| Which map has the Zip Rail system? | maps_guide.txt | `answered_from_docs` |
+| What is tap strafing? | movement_mechanics.txt | `answered_from_docs` |
+| How do I respawn my teammate? | team_composition.txt | `answered_from_docs` |
 | What is overcooked? | — | `insufficient_context` |
-
-## Response examples
-
-### answered\_from\_docs
-
-```bash
-curl -X POST http://localhost:8000/ask \
-  -H "Content-Type: application/json" \
-  -d '{"question": "what is the highest damage weapon in Apex Legend"}'
-```
-
-```json
-{
-  "answer": "The Kraber .50-Cal Sniper is a care package-only weapon that deals massive damage per shot and uses unique ammo found only with the weapon. The Wingman uses Heavy Rounds and deals very high damage per shot, making it a favourite for skilled players.",
-  "sources": [
-    {
-      "file": "weapons_guide.txt",
-      "sentence": "The Kraber .50-Cal Sniper is a care package-only weapon that deals massive damage per shot and uses unique ammo found only with the weapon.",
-      "score": 0.3393
-    }
-  ],
-  "confidence": "answered_from_docs"
-}
-```
-
-```bash
-curl -X POST http://localhost:8000/ask \
-  -H "Content-Type: application/json" \
-  -d '{"question": "what is rank in Apex Legend"}'
-```
-
-```json
-{
-  "answer": "Ranked League is Apex Legends competitive game mode where players earn or lose League Points based on their placement and kills or assists in each match. The ranked tiers from lowest to highest are Bronze, Silver, Gold, Platinum, Diamond, Master, and Apex Predator.",
-  "sources": [
-    {
-      "file": "ranked_mode.txt",
-      "sentence": "Ranked League is Apex Legends competitive game mode where players earn or lose League Points based on their placement and kills or assists in each match.",
-      "score": 0.3297
-    }
-  ],
-  "confidence": "answered_from_docs"
-}
-```
-
-### insufficient\_context
-
-```bash
-curl -X POST http://localhost:8000/ask \
-  -H "Content-Type: application/json" \
-  -d '{"question": "what is overcooked"}'
-```
-
-```json
-{
-  "answer": "The provided documents do not contain enough information to answer this question confidently.",
-  "sources": [],
-  "confidence": "insufficient_context"
-}
-```
 
 ## Error handling
 
