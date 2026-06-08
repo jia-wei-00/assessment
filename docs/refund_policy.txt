@@ -1,0 +1,15 @@
+TaskFlow Refund Policy — Effective March 1, 2024
+
+TaskFlow offers a 30-day money-back guarantee for all new paid subscriptions. If you are not satisfied with TaskFlow for any reason, you can request a full refund within 30 days of your initial payment. This guarantee applies once per customer account and does not apply to renewals or plan upgrades.
+
+To request a refund under the 30-day guarantee, send an email to billing@taskflow.io from the account owner's email address with the subject line "Refund Request" and include your account name and the reason for cancellation. Refunds are processed within 5 to 10 business days and are returned to the original payment method.
+
+After the 30-day window, TaskFlow does not provide refunds for partial billing periods. If you cancel a monthly subscription, your account will remain active until the end of the current billing cycle and will not renew. If you cancel an annual subscription after 30 days, no refund is issued for the remaining months, but your account stays active until the annual period expires.
+
+Exceptions to the no-refund policy after 30 days are considered on a case-by-case basis for: (1) documented billing errors on TaskFlow's part, (2) service outages exceeding the uptime SLA for Enterprise customers, or (3) involuntary charges resulting from account compromise. To request an exception, contact billing@taskflow.io with supporting documentation.
+
+Refunds are not available for: add-on purchases such as extra storage, usage-based AI features, professional services engagements, or custom development work.
+
+Accounts that are suspended for violating the TaskFlow Terms of Service are not eligible for refunds.
+
+If you have questions about your invoice or subscription, the billing team can be reached at billing@taskflow.io or through the Billing section of your account settings.
