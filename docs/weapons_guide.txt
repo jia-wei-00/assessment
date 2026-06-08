@@ -1,0 +1,17 @@
+Apex Legends features a wide variety of weapons organised into seven categories: Assault Rifles, Sub-Machine Guns, Light Machine Guns, Sniper Rifles, Shotguns, Pistols, and Marksman Rifles. Each weapon uses a specific ammo type: Light Rounds, Heavy Rounds, Energy Ammo, Shotgun Shells, or Sniper Ammo.
+
+Assault Rifles are versatile mid-range weapons. The R-301 Carbine uses Light Rounds and is highly accurate with a fast fire rate, making it one of the most beginner-friendly weapons in the game. The Flatline uses Heavy Rounds and deals higher damage per bullet. The Hemlok Burst AR fires in three-round bursts and can be switched to single-fire mode. The Nemesis Burst AR uses Energy Ammo and gains increased fire rate as it warms up during sustained fire.
+
+Sub-Machine Guns excel at close-range combat. The R-99 SMG uses Light Rounds and has one of the fastest fire rates in the game, making it devastating at short range. The Volt SMG uses Energy Ammo and has a slower fire rate but stronger per-bullet damage. The CAR SMG is unique because it accepts both Light and Heavy Rounds, making ammo management easier.
+
+Light Machine Guns provide sustained fire and large magazines. The Spitfire uses Heavy Rounds and has a massive 55-round base magazine. The Devotion LMG uses Energy Ammo and has a spin-up mechanic that increases fire rate the longer you hold the trigger. The L-STAR EMG uses Energy Ammo and fires explosive plasma bolts that can shoot through cover but overheats if fired too rapidly.
+
+Sniper Rifles are designed for long-range engagements. The Longbow DMR uses Sniper Ammo and is a semi-automatic rifle good for sustained ranged damage. The Sentinel is a bolt-action sniper rifle that can be charged using Shield Cells to deal bonus damage on the next shot. The Kraber .50-Cal Sniper is a care package-only weapon that deals massive damage per shot and uses unique ammo found only with the weapon.
+
+Shotguns dominate at close range. The Mastiff Shotgun uses Shotgun Shells and fires a horizontal spread of pellets for high burst damage. The EVA-8 Auto is a semi-automatic shotgun with a faster fire rate. The Peacekeeper is a lever-action shotgun that can be equipped with a Precision Choke hop-up to tighten the pellet spread.
+
+Pistols serve as reliable backup weapons. The Wingman uses Heavy Rounds and deals very high damage per shot, making it a favourite for skilled players. The RE-45 Auto uses Light Rounds and is a fully automatic pistol suitable for close range. The P2020 is a basic semi-automatic pistol often used early in a match before better weapons are found.
+
+Marksman Rifles bridge the gap between assault rifles and snipers. The G7 Scout uses Light Rounds and fires semi-automatically with high accuracy. The Triple Take uses Energy Ammo and fires a triple-bolt spread that can be tightened with the Precision Choke hop-up. The 30-30 Repeater uses Heavy Rounds and deals high damage per shot but requires charging between shots for maximum damage.
+
+Care package weapons are powerful guns that only arrive via supply drops and cannot be found as ground loot. These include the Kraber, Mastiff (when in care package rotation), Alternator with Disruptor rounds, and others that rotate each season. These weapons come with unique ammo that cannot be restocked from floor loot.

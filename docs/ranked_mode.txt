@@ -1,0 +1,15 @@
+Ranked League is Apex Legends' competitive game mode where players earn or lose League Points (LP) based on their placement and kills or assists in each match. The ranked season is divided into two splits, each lasting approximately six weeks, with a soft reset of ranks between splits.
+
+The ranked tiers from lowest to highest are Bronze, Silver, Gold, Platinum, Diamond, Master, and Apex Predator. Each tier except Master and Apex Predator is divided into four divisions: IV, III, II, and I, with I being the highest division before promotion to the next tier. Players need 1000 LP to reach Master tier. Apex Predator rank is reserved for the top 750 players on each platform per region and requires maintaining a position among them.
+
+Players earn LP through placement and kills or assists. Placing in the top 10 awards placement LP. Kills and assists each award Kill LP, though there is a cap on how many kills count per match. Entry cost is deducted at the start of each match based on the player's current rank, which means higher-ranked players must perform consistently to avoid losing ground. Players at Bronze rank have no entry cost and cannot be deducted below zero LP.
+
+The match-made skill bracket in ranked is determined by the highest-ranked player in a squad. This means if one player is Platinum and their squadmates are Gold, the entire squad will be placed in matches suited for Platinum-level play. Players are advised to queue with teammates of similar rank to ensure fair matchmaking.
+
+Ranked mode uses the same core battle royale rules as regular play but has no SBMM (skill-based matchmaking) outside of rank brackets. The mode does not allow players to party with others more than one full tier apart to prevent highly skilled players from carrying low-ranked friends through ranked matches.
+
+Each split reset reduces players' ranks by a set number of divisions. For example, a Diamond IV player at the end of a split might start the next split at Platinum II. This system encourages continuous play throughout the season and prevents players from reaching a high rank and stopping. Season end rewards are given based on the highest rank achieved during the season and include exclusive badges, charms, and in-game currency.
+
+Ranked Arenas was a separate ranked mode based on the Arenas game mode but was discontinued in Season 14 when Arenas was retired. The current ranked offering focuses solely on the Battle Royale format.
+
+Predator and Master players often stream their ranked gameplay and are tracked on third-party websites such as Apex Legends Status, which provides real-time tracking of LP thresholds for Apex Predator on each server region. The Predator LP threshold fluctuates daily as top players compete for positions.

@@ -1,0 +1,13 @@
+Apex Legends is a free-to-play battle royale hero shooter developed by Respawn Entertainment and published by Electronic Arts. It was released in February 2019 and is available on PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, and Nintendo Switch.
+
+Each match places 60 players divided into 20 squads of three players onto a large map. The last squad standing wins the match. Players skydive from a dropship at the start of each match and must choose a landing location to loot weapons, armor, and equipment before engaging enemies.
+
+Apex Legends features a roster of unique playable characters called Legends, each with three distinct abilities: a passive ability that is always active, a tactical ability with a cooldown, and an ultimate ability that charges over time or through collecting Ultimate Accelerants. Choosing a Legend that complements your teammates' abilities is a key part of the game's strategy.
+
+The playable zone shrinks over time through a mechanic called the Ring. Players caught outside the Ring take increasing damage and must move inside the safe zone. The Ring forces squads closer together as the match progresses, creating inevitable encounters.
+
+The game uses a ping system that allows players to communicate without voice chat. Players can ping locations, enemies, weapons, ammo, and other items by pressing the ping button. This makes the game accessible and team-friendly even for players who do not use a microphone.
+
+Apex Legends receives regular seasonal updates called Seasons, each lasting approximately three months. New Seasons introduce new Legends, weapons, map changes, limited-time game modes, and ranked resets. The game has a Battle Pass system that rewards players with cosmetic items for completing challenges and earning experience points.
+
+The Storm Point map was introduced in Season 11 and is the largest map in the game. Kings Canyon was the original launch map and is known for its tight corridors and aggressive close-range fights. Worlds Edge features a mix of open terrain and dense urban areas. Olympus is a floating city map with vertical gameplay elements. Broken Moon was introduced in Season 15 and features zip rail systems for rapid traversal.

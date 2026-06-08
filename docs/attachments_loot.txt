@@ -1,0 +1,17 @@
+Apex Legends uses a colour-coded loot rarity system with five tiers. Common items are white, Rare items are blue, Epic items are purple, Legendary items are gold, and Heirloom-tier items are red. Higher rarity gear generally provides better stats or additional bonuses.
+
+Body Shields are armour that absorb damage before it reduces your health. A white Level 1 Shield has 50 hit points. A blue Level 2 Shield has 75 hit points. A purple Level 3 Shield has 100 hit points. A gold Level 4 Evo Shield also has 100 hit points but includes a special perk that allows faster healing when using Shield Cells or Shield Batteries. The Evo Shield system allows players to upgrade their shields by dealing damage to enemies, progressing through the tiers from white through purple as they accumulate damage.
+
+Helmets reduce the incoming headshot damage multiplier. A white Level 1 Helmet reduces headshot multiplier to 1.5x from the base 2x. A blue Level 2 Helmet reduces it further to 1.25x. A purple or gold Level 3 Helmet reduces it to 1.1x. Gold Helmets additionally reduce the cooldown of tactical and ultimate abilities.
+
+Backpacks determine how many items a player can carry. A white Level 1 Backpack provides 2 extra inventory slots for a total of 10 slots. A blue Level 2 Backpack provides 4 extra slots for 12 total. A purple Level 3 Backpack provides 6 extra slots for 14 total. A gold Level 4 Backpack provides 6 extra slots but also allows players to use healing items 25 percent faster.
+
+Knockdown Shields protect downed players from incoming fire. White shields have 100 HP, blue shields have 250 HP, purple shields have 750 HP, and gold Knockdown Shields have 750 HP plus a one-time self-revive ability that can be used when not being watched by enemies.
+
+Weapon attachments modify weapon performance. Barrels or Barrel Stabilisers reduce recoil and muzzle flash. Stocks improve ADS speed and hipfire accuracy and reduce weapon sway. Magazines increase the ammunition capacity of a weapon, with higher rarity magazines holding significantly more rounds. Extended Mag attachment names specify the ammo type they support, such as Extended Light Mag or Extended Energy Mag. Scopes range from 1x HCOG Classic to 4-10x Digital Sniper Threat sights and affect zoom level and clarity.
+
+Hop-up attachments are special rare modifications that change a weapon's mechanics. The Turbocharger hop-up removes the spin-up delay on the Devotion and HAVOC. The Hammerpoint Rounds hop-up increases damage against unshielded targets on the P2020 and RE-45. The Boosted Loader hop-up for the Wingman and Hemlok speeds up the reload animation when the magazine is nearly empty. The Double Tap Trigger allows the EVA-8 Auto and G7 Scout to fire two rapid shots per trigger pull.
+
+Supply Drops or care packages fall from the sky throughout the match and contain guaranteed high-tier gear including care package weapons, gold attachments, and Legendary armour. A care package beacon appears on the map as a blue icon before it lands. Supply Drops are marked on the minimap and attract competition from multiple squads.
+
+Replicators are crafting stations found on all maps that allow players to craft specific items using crafting materials collected from floor loot. Crafting materials appear as small blue stacks on the ground. Each season, a rotation of items is available for crafting, and these rotate mid-season. Players can craft weapons, armour, hop-ups, and other items at replicators.

@@ -1,9 +1,0 @@
-TaskFlow is a cloud-based project management platform designed for software development teams and creative agencies. It helps teams plan, track, and deliver work collaboratively in a single workspace.
-
-TaskFlow was founded in 2019 and launched its first public version in 2020. The platform is headquartered in Austin, Texas, and currently serves over 50,000 teams across 80 countries. TaskFlow supports projects of any size, from solo freelancers to enterprise organizations with thousands of members.
-
-At its core, TaskFlow organizes work into Projects, Boards, and Tasks. Each Project contains one or more Boards (Kanban-style or list view), and each Board contains Tasks that can be assigned to team members, given due dates, and tagged with priority labels. Tasks support nested subtasks, file attachments, comments, and activity history.
-
-TaskFlow integrates natively with GitHub, GitLab, Slack, Google Drive, Figma, and Zapier. Webhooks are available on the Business and Enterprise plans for custom integrations.
-
-The platform is accessible via web browser, iOS app, and Android app. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). TaskFlow is SOC 2 Type II certified and GDPR compliant.

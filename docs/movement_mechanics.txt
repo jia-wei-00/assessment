@@ -1,0 +1,21 @@
+Apex Legends has some of the most advanced movement mechanics in the battle royale genre, borrowed from Titanfall 2. Mastering these techniques gives players significant advantages in both engagements and rotations.
+
+Slide jumping is a fundamental movement technique. When sprinting, crouching causes your character to slide. At the end of a slide, jumping launches you forward with extra momentum, carrying your speed into the air. Chaining slide jumps allows players to move significantly faster than running. Bunny hopping is a variation where players chain multiple jumps without sliding, timing jumps at the exact moment of landing to maintain speed on flat terrain.
+
+Strafing is the technique of moving left or right while aiming to make yourself a harder target to hit. Counter-strafing involves quickly pressing the opposite direction key to stop momentum before firing, which improves accuracy. Advanced players combine strafing with crouching to create unpredictable movement patterns during gunfights.
+
+Mantling allows players to grab onto ledges and pull themselves up without jumping. Running directly into a ledge that is within reach causes the character to mantle onto it automatically. This allows access to surfaces that cannot be reached by jumping alone and is useful for quickly repositioning to high ground during fights.
+
+Tap-strafing is an advanced PC-only movement technique that allows players to change direction mid-air by rapidly tapping the forward movement key in combination with turning the mouse. This creates sharp directional changes in the air that enemies cannot predict. Tap-strafing became controversial and was partially limited by Respawn but remains usable on PC.
+
+Wall running is possible for a short distance by jumping toward a wall at an angle and then jumping again. This is particularly useful for navigating tight corridors or reaching elevated positions faster. Combining wall running with other movement techniques creates highly mobile combat styles.
+
+Ziplines are environmental traversal tools found across all maps, as well as a deployable tool used by Pathfinder and Rampart. Players can jump off ziplines at any point and gain directional momentum. Skilled players jump off ziplines mid-travel to land at unexpected positions.
+
+Loba's Burglar's Best Friend tactical ability allows instantaneous teleportation by throwing her Jump Drive bracelet to a target location. This is used not only for repositioning but also for reaching areas that no other legend can access, including behind enemy cover or onto rooftops.
+
+Octane's Stim tactical ability increases movement speed by 30 percent for six seconds at the cost of 12 percent of his health. Octane naturally regenerates health when not using Stim, making him self-sufficient for aggressive repositioning. His Launch Pad ultimate ability deploys a trampoline that launches all players who step on it into the air, enabling the entire squad to reach elevated terrain rapidly.
+
+Horizon's Gravity Lift tactical launches players upward on a stream of gravitational energy. Players can be launched into the air and fire weapons while descending, creating powerful aerial attack angles. Combining Gravity Lift with a Flatline or R-301 allows effective combat while airborne.
+
+Valkyrie uses her VTOL Jets passive to fly vertically at the cost of fuel. Her Skyward Dive ultimate launches her and her entire squad into the air with a skydive, allowing large repositions across the map. This is one of the strongest repositioning tools for an entire squad and is particularly powerful in ranked play for escaping bad positions.
