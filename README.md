@@ -110,14 +110,77 @@ After clearing, calling `POST /ask` returns a 400 until `POST /index` is called 
 
 ## Sample questions to try
 
-| Question | Expected source |
-|---|---|
-| What is TaskFlow? | product_overview.txt |
-| How many team members does the Free plan support? | pricing.txt |
-| How do I request a refund? | refund_policy.txt |
-| What are the Business plan support hours? | support_policy.txt |
-| Does TaskFlow integrate with GitHub? | product_overview.txt |
-| What is the keyboard shortcut to create a task? | features.txt |
+| Question | Expected source | Confidence |
+|---|---|---|
+| What is TaskFlow? | product_overview.txt | `answered_from_docs` |
+| How many team members does the Free plan support? | pricing.txt | `answered_from_docs` |
+| How do I request a refund? | refund_policy.txt | `answered_from_docs` |
+| What are the Business plan support hours? | support_policy.txt | `answered_from_docs` |
+| Does TaskFlow integrate with GitHub? | product_overview.txt | `answered_from_docs` |
+| What is the keyboard shortcut to create a task? | features.txt | `answered_from_docs` |
+| What is the highest damage weapon in Apex Legend? | weapons_guide.txt | `answered_from_docs` |
+| What is rank in Apex Legend? | ranked_mode.txt | `answered_from_docs` |
+| What is overcooked? | — | `insufficient_context` |
+
+## Response examples
+
+### answered\_from\_docs
+
+```bash
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "what is the highest damage weapon in Apex Legend"}'
+```
+
+```json
+{
+  "answer": "The Kraber .50-Cal Sniper is a care package-only weapon that deals massive damage per shot and uses unique ammo found only with the weapon. The Wingman uses Heavy Rounds and deals very high damage per shot, making it a favourite for skilled players.",
+  "sources": [
+    {
+      "file": "weapons_guide.txt",
+      "sentence": "The Kraber .50-Cal Sniper is a care package-only weapon that deals massive damage per shot and uses unique ammo found only with the weapon.",
+      "score": 0.3393
+    }
+  ],
+  "confidence": "answered_from_docs"
+}
+```
+
+```bash
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "what is rank in Apex Legend"}'
+```
+
+```json
+{
+  "answer": "Ranked League is Apex Legends competitive game mode where players earn or lose League Points based on their placement and kills or assists in each match. The ranked tiers from lowest to highest are Bronze, Silver, Gold, Platinum, Diamond, Master, and Apex Predator.",
+  "sources": [
+    {
+      "file": "ranked_mode.txt",
+      "sentence": "Ranked League is Apex Legends competitive game mode where players earn or lose League Points based on their placement and kills or assists in each match.",
+      "score": 0.3297
+    }
+  ],
+  "confidence": "answered_from_docs"
+}
+```
+
+### insufficient\_context
+
+```bash
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "what is overcooked"}'
+```
+
+```json
+{
+  "answer": "The provided documents do not contain enough information to answer this question confidently.",
+  "sources": [],
+  "confidence": "insufficient_context"
+}
+```
 
 ## Error handling
 
@@ -160,4 +223,59 @@ The index lives only in memory and is lost on server restart. The TF-IDF matrix 
 ### Scalability
 
 For thousands of documents, the in-memory numpy cosine search should be replaced with an approximate nearest-neighbour index (FAISS, hnswlib) or a dedicated vector database (Chroma, Qdrant).
-# assessment
+
+---
+
+## Future plans
+
+### Web search fallback for unanswered questions
+
+When the service returns `"insufficient_context"`, the question could not be answered from the indexed documents. The planned improvement is to automatically fall back to a web search tool when this happens, so the user always gets an answer regardless of whether the information exists in the local docs.
+
+**Planned flow:**
+
+```
+POST /ask
+    │
+    ├── Search indexed docs (TF-IDF)
+    │       │
+    │       ├── score ≥ MIN_SCORE  ──► return answer from docs
+    │       │                          confidence: "answered_from_docs"
+    │       │
+    │       └── score < MIN_SCORE  ──► fallback to web search
+    │                                  confidence: "answered_from_web"
+    │
+    └── return answer with source URL
+```
+
+**Planned response shape when web search is used:**
+
+```json
+{
+  "answer": "Overcooked is a cooperative cooking simulation video game developed by Ghost Town Games, released in 2016.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Overcooked",
+      "title": "Overcooked - Wikipedia",
+      "snippet": "Overcooked is a cooperative cooking simulation video game..."
+    }
+  ],
+  "confidence": "answered_from_web"
+}
+```
+
+**Implementation approach:**
+
+- Use a free web search API such as [DuckDuckGo Instant Answer API](https://api.duckduckgo.com/) (no API key required) or [SerpAPI](https://serpapi.com/) for richer results.
+- The fallback only triggers when `confidence` would be `"insufficient_context"`, keeping doc-based answers as the primary and trusted source.
+- Web results will include a `"url"` field in sources so the user can verify the origin.
+- A `search_enabled` flag in the request body will allow callers to opt out of web search if they only want answers from the indexed documents.
+
+**Planned request body:**
+
+```json
+{
+  "question": "what is overcooked",
+  "search_enabled": true
+}
+```
